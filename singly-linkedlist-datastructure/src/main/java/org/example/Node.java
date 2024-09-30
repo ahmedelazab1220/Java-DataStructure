@@ -93,4 +93,68 @@ public class Node {
         return head;
     }
 
+    public static Node removeFirstNode(Node head){
+        if (head == null)
+            return null;
+
+        head = head.next;
+
+        return head;
+    }
+
+    public static Node removeLastNode(Node head){
+        if(head == null){
+            return null;
+        }
+
+        if (head.next == null) {
+            return null;
+        }
+
+        Node second_last = head;
+        while (second_last.next.next != null)
+            second_last = second_last.next;
+
+        second_last.next = null;
+
+        return head;
+    }
+
+    public static Node removeAtPos(Node head , int pos){
+
+        if(head == null){
+            return null;
+        }
+
+        if (pos < 1) {
+            System.out.println("Invalid position!");
+            return head;
+        }
+
+        if(pos == 1){
+            return removeFirstNode(head);
+        }
+
+        Node prev = head;
+        int count = 1;
+        while (count < pos - 1 && prev != null) {
+            prev = prev.next;
+            count++;
+        }
+
+        if (prev == null || prev.next == null) {
+            System.out.println("Invalid position!");
+            return head;
+        }
+
+        if(prev.next.next == null){
+             prev.next = null;
+             return head;
+        }
+
+        prev.next = prev.next.next;
+
+        return head;
+    }
+
 }
