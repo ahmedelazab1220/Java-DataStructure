@@ -19,5 +19,9 @@ public class Main {
         System.out.println("----------------------------------------------------");
         node1 = Node.removeAtPos(node1 , 5);
         Node.traverse(node1);
+        System.out.println("----------------------------------------------------");
+        System.out.println("Length Of node1 -> " + Node.calculateLengthOfLinkedList(node1));
+        System.out.println("----------------------------------------------------");
+        System.out.println("Search Value -> 10 in node1 -> " + Node.searchItem(node1 , 10));
     }
 }
